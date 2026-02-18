@@ -1,0 +1,15 @@
+pandas
+numpy
+python-dateutil
+unidecode
+email-validator
+pycountry
+geonamescache
+thefuzz
+xlsxwriter
+streamlit
+word2number
+text_to_num
+plotly
+openpyxl
+reportlab
