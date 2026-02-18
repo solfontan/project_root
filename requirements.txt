@@ -10,6 +10,6 @@ geonamescache
 thefuzz
 rapidfuzz
 word2number
-text_to_num
+text2num
 openpyxl
 reportlab
