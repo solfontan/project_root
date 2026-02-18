@@ -8,6 +8,11 @@ matplotlib.use("Agg")
 import plotly.express as px
 from io import BytesIO
 
+import sys
+import os
+
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 
 from cleaner.cleaner_core import DataCleaner
 from cleaner.premium_report import generate_premium_pdf
