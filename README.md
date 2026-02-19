@@ -3,6 +3,7 @@
 Streamlit-based data cleaning and validation tool.
 
 Plans:
+
 - Basic: Safe automatic cleaning
 - Medium: Issue tracking and deeper validation
 - Premium: Intelligence dashboard

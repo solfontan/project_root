@@ -213,6 +213,35 @@ def overview_page():
         • Indicates potential upstream integration or sync issues  
         • Recommend validating data ingestion pipeline
         """)
+        
+        
+    st.markdown("---")
+    st.markdown("## ⬇️ Download Clean Dataset")
+
+    df_export = st.session_state.df_clean.copy()
+
+    excel_buffer = BytesIO()
+    df_export.to_excel(excel_buffer, index=False)
+    excel_buffer.seek(0)
+
+    col1, col2 = st.columns(2)
+
+    col1.download_button(
+        "📘 Download Excel (.xlsx)",
+        data=excel_buffer,
+        file_name="clean_data.xlsx",
+        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
+        use_container_width=True
+    )
+
+    col2.download_button(
+        "📄 Download CSV (.csv)",
+        data=df_export.to_csv(index=False).encode("utf-8"),
+        file_name="clean_data.csv",
+        mime="text/csv",
+        use_container_width=True
+    )
+
 
 
 # ==================================================
@@ -625,33 +654,6 @@ if st.session_state.df_clean is not None:
     #     )
     pg.run()
     
-    st.markdown("---")
-    st.markdown("## ⬇️ Download Clean Dataset")
-
-    df_export = st.session_state.df_clean.copy()
-
-    excel_buffer = BytesIO()
-    df_export.to_excel(excel_buffer, index=False)
-    excel_buffer.seek(0)
-
-    col1, col2 = st.columns(2)
-
-    col1.download_button(
-        "📘 Download Excel (.xlsx)",
-        data=excel_buffer,
-        file_name="clean_data.xlsx",
-        mime="application/vnd.openxmlformats-officedocument.spreadsheetml.sheet",
-        use_container_width=True
-    )
-
-    col2.download_button(
-        "📄 Download CSV (.csv)",
-        data=df_export.to_csv(index=False).encode("utf-8"),
-        file_name="clean_data.csv",
-        mime="text/csv",
-        use_container_width=True
-    )
-
 # --------------------------------------------------
 # FOOTER
 # --------------------------------------------------
